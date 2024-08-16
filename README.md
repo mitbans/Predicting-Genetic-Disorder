@@ -102,7 +102,7 @@ The dataset, sourced from Kaggle, contains medical information about 22,083 chil
 #### Potential Challenges
 - **Complex Interactions:** Genetic factors can interact with environmental and other factors in complex ways.
 - **Data Privacy:** Handling sensitive patient data requires appropriate privacy measures. Remove such columns.
-- **Interpretability:** Understanding the reasons behind model predictions can be challenging due to the complexity of genetic data.
+- **Interpretability:** Understanding the reasons behind model predictions can be challenging due to the complexity of genetic data. 
 
 By thoroughly understanding and preparing the data, we can build accurate and reliable models to predict genetic disorders and their subclasses, ultimately aiding in early diagnosis and treatment planning.
 
@@ -154,7 +154,8 @@ Visualized the distributions of key variables using histograms, density plots an
     - **WBC Count** shows a normal distribution centered around an average of 7.49 (thousand per microliter), with the majority of values between 5.5 and 9.5. The full range spans from from 3.0 to 12.0, with no outliers.
 
 - **Summary of the Distribution Analysis for Categorical Variables:**
-    - **Data Categorization**: To effectively analyze and model this data, we can categorize the features into several groups, this categorization can help in understanding the relationships between different features and their impact on predicting genetic disorders:
+    - **Data Categorization**: 
+    To effectively analyze and model this data, we can categorize the features into several groups, this categorization can help in understanding the relationships between different features and their impact on predicting genetic disorders:
         - **Patient Demographics**
             - **Patient Age**: The age of the patient (child) in years.
             - **Gender**: Gender of the patient (Ambiguous, male, female).
@@ -194,7 +195,8 @@ Visualized the distributions of key variables using histograms, density plots an
             - **Follow-up**: Follow-up after initial diagnosis or treatment (Low, High).
         - **Target Variables**
             - **Genetic Disorder**: The type of genetic disorder diagnosed in the patient (target variable).
-            - **Disorder Subclass**: The subclass of the genetic disorder diagnosed in the patient (target variable).                                
+            - **Disorder Subclass**: The subclass of the genetic disorder diagnosed in the patient (target variable).                   
+                               
         
             
 
