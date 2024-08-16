@@ -184,9 +184,10 @@ Visualized the distributions of key variables using histograms, density plots an
         - **Pregnancy related factors**
             - **Folic acid details (peri-conceptional)**: whether folic acid was taken during the peri-conceptional period (Yes, No).
             - **H/O serious maternal illness**: History of serious maternal illness during pregnancy (Yes, No).
+            - **Assisted conception IVF/ART**: Whether the child was conceived via assisted reproductive technologies like IVF.
+        - **Environmental factors**
             - **H/O radiation exposure (x-ray)**: History of maternal radiation exposure (e.g., X-rays) during pregnancy (Yes, No).
             - **H/O substance abuse**: History of maternal substance abuse during pregnancy (Yes, No)
-            - **Assisted conception IVF/ART**: Whether the child was conceived via assisted reproductive technologies like IVF.
         - **Previous Pregnancies**
             - **History of anomalies in previous pregnancies**: Information on any anomalies in previous pregnancies (Yes, No).
             - **No. of previous abortions**: Number of abortions the mother had before this pregnancy.
