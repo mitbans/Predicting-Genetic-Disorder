@@ -159,20 +159,15 @@ Visualized the distributions of key variables using histograms, density plots an
         - **WBC Count** shows a normal distribution centered around an average of 7.49 (thousand per microliter), with the majority of values between 5.5 and 9.5. The full range spans from from 3.0 to 12.0, with no outliers.
 
     - **Summary of the Distribution Analysis for Categorical Variables:**
-    
-        - **Data Categorization**
-        To effectively analyze and model this data, we can categorize the features into several groups:
-        
+        - **Data Categorization**: To effectively analyze and model this data, we can categorize the features into several groups, this categorization can help in understanding the relationships between different features and their impact on predicting genetic disorders:
             - **Patient Demographics**
                 - **Patient Age**: The age of the patient (child) in years.
                 - **Gender**: Gender of the patient (Ambiguous, male, female).
-            
             - **Patient Birth History**
                 - **Birth defects**: Presence of any birth defects in the patient (Singular, Multiple).
                 - **Birth asphyxia**: Information on whether the patient experienced birth asphyxia (Yes, No).
                 - **Autopsy shows birth defect (if applicable)**: Whether autopsy revealed any birth defects (Yes, No).
                 - **Place of birth**: The location where the patient was born (Institute or Home).
-            
             - **Patient Current Health Status**
                 - **Status**: The current health status of the patient (e.g., alive, deceased).
                 - **Respiratory Rate (breaths/min)**: The respiratory rate of the patient (Normal, Tachypnea)
@@ -182,38 +177,31 @@ Visualized the distributions of key variables using histograms, density plots an
                 - **Blood test result**: Results of Unspecified blood tests (normal, abnormal, etc.).
                 - **Test 1 - Test 5**: Results from various unspecified medical tests implying birth defects (1, 0).
                 - **Symptom 1 - Symptom 5**: Various unspecified symptoms observed in the patient (1, 0).
-            
             - **Parents Demographics**
                 - **Mother's age**: Age of the mother at the time of the child's birth.
                 - **Father's age**: Age of the father at the time of the child's birth.
-            
             - **Genetic Information**
                 - **Genes in mother's side**: Information on whether there are genetic conditions in the maternal family (Yes, No).
                 - **Inherited from father**: Information on genetic traits inherited from the father (Yes, No).
                 - **Maternal gene**: Information on whether inherited from the mother (Yes, No).
                 - **Paternal gene**: Information on whether inherited from the father (Yes, No).
-            
             - **Pregnancy related factors**
                 - **Folic acid details (peri-conceptional)**: whether folic acid was taken during the peri-conceptional period (Yes, No).
                 - **H/O serious maternal illness**: History of serious maternal illness during pregnancy (Yes, No).
                 - **H/O radiation exposure (x-ray)**: History of maternal radiation exposure (e.g., X-rays) during pregnancy (Yes, No).
                 - **H/O substance abuse**: History of maternal substance abuse during pregnancy (Yes, No)
                 - **Assisted conception IVF/ART**: Whether the child was conceived via assisted reproductive technologies like IVF.
-            
             - **Previous Pregnancies**
                 - **History of anomalies in previous pregnancies**: Information on any anomalies in previous pregnancies (Yes, No).
                 - **No. of previous abortions**: Number of abortions the mother had before this pregnancy.
-            
             - **Consents & Follow-ups**
                 - **Parental consent**: Whether parental consent was obtained for genetic testing.
                 - **Follow-up**: Follow-up after initial diagnosis or treatment (Low, High).
-            
             - **Target Variables**
                 - **Genetic Disorder**: The type of genetic disorder diagnosed in the patient (target variable).
                 - **Disorder Subclass**: The subclass of the genetic disorder diagnosed in the patient (target variable).                                
         
-            This categorization can help in understanding the relationships between different features and their impact on predicting genetic disorders.
-
+            
 
 
 - Correlation Analysis
