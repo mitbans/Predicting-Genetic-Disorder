@@ -109,6 +109,32 @@ The dataset, sourced from Kaggle, contains medical information about 22,083 chil
 
 By thoroughly understanding and preparing the data, we can build accurate and reliable models to predict genetic disorders and their subclasses, ultimately aiding in early diagnosis and treatment planning.
 
+### Data Preparation
 
+The data preparation phase is crucial for ensuring that the dataset is clean, consistent, and suitable for model training. This involves handling missing values, encoding categorical variables, scaling numerical features, and potentially feature engineering. Here are the detailed steps for data preparation:
+
+#### Data Cleaning:
+
+**Drop Irrelavent columns**
+- Remove columns that do not contribute to the prediction of genetic disorders, ensuring a more focused dataset.
+- Following columns are identified irrelavent: 'Patient Id', 'Patient First Name', 'Family Name', 'Father's name', 'Test 1', 'Test 2', 'Test 3', 'Test 5' (Test 1-3 and 5 have all values = 0)
+
+**Find and Remove Duplicates (if any)**: No Duplicates found.
+
+**Rename Columns**
+- Rename columns with appropriate short names for clarity and ease of use.
+
+### Data Exploration
+
+In the Data Exploration phase, conducted a thorough analysis to uncover patterns, relationships, and insights within the dataset. 
+Key activities included:
+
+- Descriptive Statistics
+- Distribution Analysis
+- Correlation Analysis
+- Missing Values Analysis
+- Categorical Data Analysis
+- Outlier Detection
+- Bivariate Analysis
 
 
