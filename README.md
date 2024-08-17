@@ -198,16 +198,31 @@ Visualized the distributions of key variables using histograms, density plots an
             - Genetic Disorder (target variable) - a skew towards mitochondrial disorders
             - Disorder Subclass (target variable) -  skewed towards a few dominant subclasses  
         
-            
-
-
-
-
-
 
 - Correlation Analysis
 - Categorical Data Analysis
 - Outlier Detection
 - Bivariate Analysis
+-
 - 
+
+
+####  **Handling Missing Values**
+
+Missing values can significantly affect the performance of machine learning models. We need to address them appropriately.
+
+- **Numerical Columns**:
+    - Binary Columns like `Symptom 1 - 5` and `Test 4`, we can fill Nan values with 0.
+    - For columns like 'Patient Age', 'Blood cell count', 'Mother age', 'Father age', 'Previous abortion count', 'WBC count', we can fill missing values with the median of the column to avoid the influence of outliers.
+
+- **Categorical Columns**: For columns like `Inherited from father`, `Maternal gene`, `Respiratory Rate`, `Heart Rate`, `Parental consent`, `Follow-up`, `Gender`, `Birth asphyxia`, `Birth defect`, `Place of birth`, `Folic acid`, `Serious maternal illness`, `Radiation exposure`, `Substance abuse`, `Assisted conception`, `Anomalies in previous pregnancies`, `Birth defects`, `Blood test result`, we can fill missing values with the mode of each column.
+
+- **Target Columns**: First, the missing values in the `Genetic Disorder` column are filled based on the `Disorder Subclass`. After that, the missing values in the `Disorder Subclass` are filled with the mode for each `Genetic Disorder` category.          
+
+
+
+
+
+
+
 ---
