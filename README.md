@@ -1,4 +1,5 @@
 # Predicting the Genetic Disorder
+Capstone Project at UC Berkeley: PC-MLAI
 
 ## Context
 As per reports, as a consequence of the unsustainable increase in population and a lack of access to adequate health care, food, and shelter, the number of genetic disorder ailments have increased. Hereditary illnesses are becoming more common due to a lack of understanding about the need for genetic testing. Often kids die as a result of these illnesses, thus genetic testing during pregnancy is critical.
