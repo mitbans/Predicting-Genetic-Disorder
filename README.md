@@ -1,7 +1,12 @@
 # Predicting the Genetic Disorder
 Capstone Project at UC Berkeley: PC-MLAI
 
-## Context
+**Author:** Mitali Bansal
+
+💡 **Research Question:** How can we accurately predict the type and subclass of genetic disorders in children based on their medical information and family history?
+
+## Executive summary
+### Rationale
 As per reports, as a consequence of the unsustainable increase in population and a lack of access to adequate health care, food, and shelter, the number of genetic disorder ailments have increased. Hereditary illnesses are becoming more common due to a lack of understanding about the need for genetic testing. Often kids die as a result of these illnesses, thus genetic testing during pregnancy is critical.
 
 <div align="center">
@@ -17,12 +22,24 @@ As per reports, as a consequence of the unsustainable increase in population and
   </div>
 
 ## Business Understanding
-
 #### Objective:
 Predict the genetic disorder and its subclass in children based on various medical and genetic attributes.
 
 #### Goals:
 - Develop a model to accurately classify the type of genetic disorder and its subclass.
+    - Genetic Disorders -> Disorder Subclass
+        - Mitochondrial genetic inheritance disorders
+            - Leigh syndrome
+            - Mitochondrial myopathy
+            - Leber's hereditary optic neuropathy 
+        - Single-gene inheritance diseases
+            - Cystic fibrosis
+            - Tay-Sachs
+            - Hemochromatosis 
+        - Multifactorial genetic inheritance disorders
+            - Diabetes
+            - Alzheimer's
+            - Cancer
 - Provide insights to aid healthcare professionals in early diagnosis and treatment planning.
 
 ## Data Understanding
@@ -218,7 +235,27 @@ Missing values can significantly affect the performance of machine learning mode
 
 - **Categorical Columns**: For columns like `Inherited from father`, `Maternal gene`, `Respiratory Rate`, `Heart Rate`, `Parental consent`, `Follow-up`, `Gender`, `Birth asphyxia`, `Birth defect`, `Place of birth`, `Folic acid`, `Serious maternal illness`, `Radiation exposure`, `Substance abuse`, `Assisted conception`, `Anomalies in previous pregnancies`, `Birth defects`, `Blood test result`, we can fill missing values with the mode of each column.
 
-- **Target Columns**: First, the missing values in the `Genetic Disorder` column are filled based on the `Disorder Subclass`. After that, the missing values in the `Disorder Subclass` are filled with the mode for each `Genetic Disorder` category.          
+- **Target Columns**: First, the missing values in the `Genetic Disorder` column are filled based on the `Disorder Subclass`. After that, the missing values in the `Disorder Subclass` are filled with the mode for each `Genetic Disorder` category.
+
+
+
+### Methodology
+What methods are you using to answer the question?
+
+#### Results
+What did your research find?
+
+#### Next steps
+What suggestions do you have for next steps?
+
+#### Outline of project
+
+- [Link to notebook 1]()
+- [Link to notebook 2]()
+- [Link to notebook 3]()
+
+
+##### Contact and Further Information  
 
 
 
