@@ -3,9 +3,9 @@ Capstone Project at UC Berkeley: PC-MLAI
 
 **Author:** Mitali Bansal
 
-🔍 **Research Question:** How can we accurately predict the type and subclass of genetic disorders in children based on their medical information and family history?
+**🔍 Research Question:** How can we accurately predict the type and subclass of genetic disorders in children based on their medical information and family history?
 
-## Executive summary
+## 🎯 Executive summary
 ### Rationale
 As per reports, as a consequence of the unsustainable increase in population and a lack of access to adequate health care, food, and shelter, the number of genetic disorder ailments have increased. Hereditary illnesses are becoming more common due to a lack of understanding about the need for genetic testing. Often kids die as a result of these illnesses, thus genetic testing during pregnancy is critical.
 
@@ -21,7 +21,7 @@ As per reports, as a consequence of the unsustainable increase in population and
     <img width="354" alt="image" src="https://github.com/mitbans/Predicting-Genetic-Disorder/blob/main/images/crisp.png">
   </div>
 
-## Business Understanding
+## 🌐 Business Understanding
 #### Objective:
 Predict the genetic disorder and its subclass in children based on various medical and genetic attributes.
 
@@ -42,7 +42,7 @@ Predict the genetic disorder and its subclass in children based on various medic
             - Cancer
 - Provide insights to aid healthcare professionals in early diagnosis and treatment planning.
 
-## Data Understanding
+## 🗂️ Data Understanding
 
 #### Overview:
 The dataset, sourced from Kaggle, contains medical information about 22,083 children with genetic disorders with genetic disorders, aimed at predicting the type of genetic disorder and its subclass. There are 45 columns, each representing different attributes related to the patients' genetic, parental, and medical conditions, including 2 columns of target outputs - genetic disoder and its subclass.
@@ -124,7 +124,7 @@ The dataset, sourced from Kaggle, contains medical information about 22,083 chil
 
 By thoroughly understanding and preparing the data, we can build accurate and reliable models to predict genetic disorders and their subclasses, ultimately aiding in early diagnosis and treatment planning.
 
-## Data Preparation
+## 🧰 Data Preparation
 
 The data preparation phase is crucial for ensuring that the dataset is clean, consistent, and suitable for model training. This involves handling missing values, encoding categorical variables, scaling numerical features, and potentially feature engineering. Here are the detailed steps for data preparation:
 
@@ -136,7 +136,7 @@ The data preparation phase is crucial for ensuring that the dataset is clean, co
 - **Rename Columns**
   - Rename columns with appropriate short names for clarity and ease of use.
 
-### Exploratory Data Analysis (EDA)
+### 📊 Exploratory Data Analysis (EDA)
 
 In the Data Exploration phase, conducted a thorough analysis to uncover patterns, relationships, and insights within the dataset. 
 Key activities included:
@@ -238,24 +238,30 @@ Missing values can significantly affect the performance of machine learning mode
 - **Target Columns**: First, the missing values in the `Genetic Disorder` column are filled based on the `Disorder Subclass`. After that, the missing values in the `Disorder Subclass` are filled with the mode for each `Genetic Disorder` category.
 
 
-
+## 🤖 Modeling
 ### Methodology
 What methods are you using to answer the question?
 
-#### Results
+## ✅ Evaluation
+
+#### 🏆 Results
 What did your research find?
 
-#### Next steps
+
+## 🚀 Deployment 
+
+
+## ➡️ Next steps
 What suggestions do you have for next steps?
 
-#### Outline of project
+## Outline of project
 
 - [Link to notebook 1]()
 - [Link to notebook 2]()
 - [Link to notebook 3]()
 
 
-##### Contact and Further Information  
+## Contact and Further Information  
 
 
 
