@@ -3,7 +3,7 @@ Capstone Project at UC Berkeley: PC-MLAI
 
 **Author:** Mitali Bansal
 
-💡 **Research Question:** How can we accurately predict the type and subclass of genetic disorders in children based on their medical information and family history?
+🔍 **Research Question:** How can we accurately predict the type and subclass of genetic disorders in children based on their medical information and family history?
 
 ## Executive summary
 ### Rationale
