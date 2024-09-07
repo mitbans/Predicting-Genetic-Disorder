@@ -230,11 +230,65 @@ Scatter plots, correlation coefficients (like Pearson or Spearman), and regressi
 - Patient Age has minimal correlations with other features.
 - The NaN values for Test 4 suggest there was no data available for this feature, leading to undefined correlations.
 
-##### **Categorical vs. Categorical Summary:**  ----------------------- pending
+##### **Categorical vs. Categorical Summary:** 
 Contingency tables (cross-tabulation) and chi-square tests are used to examine associations between two categorical variables.
 
-##### **Numerical vs. Categorical Summary:** ------------------- pending
+- **Summary of the chi-square test results for Genetic Disorder (p-value < 0.05):**
+    1. **Inherited from mother**: Chi-Square = 203.93, p-value = 5.21e-45
+    2. **Inherited from father**: Chi-Square = 196.11, p-value = 2.60e-43
+    3. **Maternal gene**: Chi-Square = 116.83, p-value = 4.28e-26
+    4. **Paternal gene**: Chi-Square = 115.47, p-value = 8.43e-26
+    5. **Blood test result**: Chi-Square = 16.69, p-value = 0.01
+    
+    These features show a significant relationship with **Genetic Disorder**, suggesting they are important in explaining or predicting the target variable.
+
+- **No Significant Association with Genetic Disorder (p-value >= 0.05):**
+    - **Status**
+    - **Respiratory Rate**
+    - **Heart Rate**
+    - **Parental consent**
+    - **Follow-up**
+    - **Gender**
+    - **Birth asphyxia**
+    - **Birth defect**
+    - **Place of birth**
+    - **Folic acid**
+    - **Serious maternal illness**
+    - **Radiation exposure**
+    - **Substance abuse**
+    - **Assisted conception**
+    - **Anomalies in previous pregnancies**
+    - **Birth defects**
+
+    These features do not show a significant association with **Genetic Disorder** and might be less relevant in predicting the target variable.
+
+**Numerical vs. Categorical Summary:**
 Box plots, bar plots, and t-tests or ANOVA (for comparing means) are used to explore how a categorical variable impacts a numerical one.
+
+- **Summary of the ANOVA results for the continuous features in relation to the `Genetic Disorder`:**
+    - **Patient Age**: \( F \)-statistic = 0.76, \( p \)-value = 0.47
+    - **Blood Cell Count**: \( F \)-statistic = 0.58, \( p \)-value = 0.56
+    - **Mother Age**: \( F \)-statistic = 0.31, \( p \)-value = 0.73
+    - **Father Age**: \( F \)-statistic = 1.12, \( p \)-value = 0.33
+    - **Previous Abortion Count**: \( F \)-statistic = 1.42, \( p \)-value = 0.24
+    - **WBC Count**: \( F \)-statistic = 0.20, \( p \)-value = 0.82
+      
+    None of the continuous features (Patient Age, Blood Cell Count, Mother Age, Father Age, Previous Abortion Count, and WBC Count) show a statistically significant association with the `Genetic Disorder` based on the ANOVA results.
+    
+    All \( p \)-values are well above the conventional significance threshold of 0.05, indicating that these features **do not significantly influence** the presence or absence of the `Genetic Disorder`.
+
+- **Summary of the ANOVA results for the continuous features in relation to the `Disorder Subclass`:**
+
+    - **Patient Age**: \( F \)-statistic = 0.95, \( p \)-value = 0.47
+    - **Blood Cell Count**: \( F \)-statistic = 1.10, \( p \)-value = 0.36
+    - **Mother Age**: \( F \)-statistic = 0.35, \( p \)-value = 0.94
+    - **Father Age**: \( F \)-statistic = 0.57, \( p \)-value = 0.80
+    - **Previous Abortion Count**: \( F \)-statistic = 0.86, \( p \)-value = 0.55
+    - **WBC Count**: \( F \)-statistic = 0.21, \( p \)-value = 0.99
+    
+    None of the continuous features (Patient Age, Blood Cell Count, Mother Age, Father Age, Previous Abortion Count, and WBC Count) show a statistically significant association with the `Disorder Subclass` based on the ANOVA results.
+    
+    All \( p \)-values are significantly higher than the conventional significance threshold of 0.05, indicating **no substantial relationship** between these features and the `Disorder Subclass`.
 
 
 ### Data Pre-processing
