@@ -216,14 +216,24 @@ Visualized the distributions of key variables using histograms, density plots an
             - Genetic Disorder (target variable) - a skew towards mitochondrial disorders
             - Disorder Subclass (target variable) -  skewed towards a few dominant subclasses  
         
+#### **Bivariate Analysis:**
 
-- Correlation Analysis
-- Categorical Data Analysis
-- Outlier Detection
-- Bivariate Analysis
--
-- 
+##### **Numerical vs. Numerical Correlation Summary:**
+Scatter plots, correlation coefficients (like Pearson or Spearman), and regression analysis are used to assess relationships between two numerical variables.
+- The correlation matrix shows how each feature in the dataset is related to the others.
+- Most correlations are close to zero, indicating weak or no linear relationships between the variables.
+- The strongest positive correlation is seen between Symptom 4 and Symptom 5 (0.0368)
+- Patient Age has minimal correlations with other features.
+- The NaN values for Test 4 suggest there was no data available for this feature, leading to undefined correlations.
 
+##### **Categorical vs. Categorical Summary:**  
+Contingency tables (cross-tabulation) and chi-square tests are used to examine associations between two categorical variables.
+
+##### **Numerical vs. Categorical Summary:** 
+Box plots, bar plots, and t-tests or ANOVA (for comparing means) are used to explore how a categorical variable impacts a numerical one.
+
+
+### Data Pre-processing
 
 ####  **Handling Missing Values**
 
@@ -237,6 +247,32 @@ Missing values can significantly affect the performance of machine learning mode
 
 - **Target Columns**: First, the missing values in the `Genetic Disorder` column are filled based on the `Disorder Subclass`. After that, the missing values in the `Disorder Subclass` are filled with the mode for each `Genetic Disorder` category.
 
+#### **Handling Outliers**
+
+
+
+### Engineering Features
+#### Encoding Categorical Variables and Scaling Numnerical Variables
+Machine learning algorithms require numerical input. Hence, we need to convert categorical variables into numerical formats. Common techniques include:
+- **Standard Scalar**: for numerical cols
+- **Ordinal Encoding**: for categorical cols
+- **Label Encoding**: for Target cols, two target variables will be predicted and evaluated separately:
+    - Genetic Disorder
+        - 'Mitochondrial genetic inheritance disorders': 0,
+        - 'Multifactorial genetic inheritance disorders': 1,
+        - 'Single-gene inheritance diseases': 2
+    - Disorder Subclass
+        - "Alzheimer's": 0,
+        - 'Cancer': 1,
+        - 'Cystic fibrosis': 2,
+        - 'Diabetes': 3,
+        - 'Hemochromatosis': 4,
+        - "Leber's hereditary optic neuropathy": 5,
+        - 'Leigh syndrome': 6,
+        - 'Mitochondrial myopathy': 7,
+        - 'Tay-Sachs': 8
+
+### Train/Test Split for Predicting Genetic Disorder
 
 ## 🤖 Modeling
 ### Methodology
