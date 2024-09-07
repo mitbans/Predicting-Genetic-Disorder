@@ -216,13 +216,15 @@ Visualized the distributions of key variables using histograms, density plots an
             - Genetic Disorder (target variable) - a skew towards mitochondrial disorders
             - Disorder Subclass (target variable) -  skewed towards a few dominant subclasses
     
-- **Summary of Outlier Detection:** ----------------- pending
+- **Summary of Outlier Detection:**
+    - `Blood Cell Count` shows some outliers in the box plot, may require handling.
 
   
         
 #### **Bivariate Analysis:**
 
-##### **Numerical vs. Numerical Correlation Summary:**
+**Numerical vs. Numerical Correlation Summary:**
+
 Scatter plots, correlation coefficients (like Pearson or Spearman), and regression analysis are used to assess relationships between two numerical variables.
 - The correlation matrix shows how each feature in the dataset is related to the others.
 - Most correlations are close to zero, indicating weak or no linear relationships between the variables.
@@ -230,7 +232,8 @@ Scatter plots, correlation coefficients (like Pearson or Spearman), and regressi
 - Patient Age has minimal correlations with other features.
 - The NaN values for Test 4 suggest there was no data available for this feature, leading to undefined correlations.
 
-##### **Categorical vs. Categorical Summary:** 
+**Categorical vs. Categorical Summary:** 
+
 Contingency tables (cross-tabulation) and chi-square tests are used to examine associations between two categorical variables.
 
 - **Summary of the chi-square test results for Genetic Disorder (p-value < 0.05):**
@@ -263,6 +266,7 @@ Contingency tables (cross-tabulation) and chi-square tests are used to examine a
     These features do not show a significant association with **Genetic Disorder** and might be less relevant in predicting the target variable.
 
 **Numerical vs. Categorical Summary:**
+
 Box plots, bar plots, and t-tests or ANOVA (for comparing means) are used to explore how a categorical variable impacts a numerical one.
 
 - **Summary of the ANOVA results for the continuous features in relation to the `Genetic Disorder`:**
