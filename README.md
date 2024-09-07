@@ -1,4 +1,4 @@
-# 🧬 Predicting the Genetic Disorder
+# Predicting the 🧬 Genetic Disorder
 Capstone Project at UC Berkeley: PC-MLAI
 
 **Author:** Mitali Bansal
