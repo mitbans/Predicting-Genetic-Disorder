@@ -279,8 +279,9 @@ Machine learning algorithms require numerical input. Hence, we need to convert c
 ### Train/Test Split for Predicting Genetic Disorder
 
 ## 🤖 Modeling
-### Methodology
-What methods are you using to answer the question?
+
+
+
 
 ## ✅ Evaluation
 
