@@ -214,7 +214,11 @@ Visualized the distributions of key variables using histograms, density plots an
             - Follow-up (Low, High) - no significant skew in this category, equal distribution
         - **Target Variables**
             - Genetic Disorder (target variable) - a skew towards mitochondrial disorders
-            - Disorder Subclass (target variable) -  skewed towards a few dominant subclasses  
+            - Disorder Subclass (target variable) -  skewed towards a few dominant subclasses
+    
+- **Summary of Outlier Detection:** ----------------- pending
+
+  
         
 #### **Bivariate Analysis:**
 
@@ -226,10 +230,10 @@ Scatter plots, correlation coefficients (like Pearson or Spearman), and regressi
 - Patient Age has minimal correlations with other features.
 - The NaN values for Test 4 suggest there was no data available for this feature, leading to undefined correlations.
 
-##### **Categorical vs. Categorical Summary:**  
+##### **Categorical vs. Categorical Summary:**  ----------------------- pending
 Contingency tables (cross-tabulation) and chi-square tests are used to examine associations between two categorical variables.
 
-##### **Numerical vs. Categorical Summary:** 
+##### **Numerical vs. Categorical Summary:** ------------------- pending
 Box plots, bar plots, and t-tests or ANOVA (for comparing means) are used to explore how a categorical variable impacts a numerical one.
 
 
@@ -247,7 +251,7 @@ Missing values can significantly affect the performance of machine learning mode
 
 - **Target Columns**: First, the missing values in the `Genetic Disorder` column are filled based on the `Disorder Subclass`. After that, the missing values in the `Disorder Subclass` are filled with the mode for each `Genetic Disorder` category.
 
-#### **Handling Outliers**
+#### **Handling Outliers** ------------------------- pending
 
 
 
