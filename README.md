@@ -342,7 +342,8 @@ Missing values can significantly affect the performance of machine learning mode
 #### Encoding Categorical Variables and Scaling Numnerical Variables
 Machine learning algorithms require numerical input. Hence, we need to convert categorical variables into numerical formats. Common techniques include:
 - **Standard Scalar**: for numerical cols (not required as selected cols are binary 1,0)
-- **Ordinal Encoding**: for categorical cols
+- **Ordinal Encoding**: for categorical cols: 'Inherited from mother', 'Inherited from father', 'Maternal gene', 'Paternal gene', 'Blood test result'
+    - Output: {'Inherited from mother': {0: 'No', 1: 'Yes'}, 'Inherited from father': {0: 'No', 1: 'Not Available', 2: 'Yes'}, 'Maternal gene': {0: 'No', 1: 'Not Available', 2: 'Yes'}, 'Paternal gene': {0: 'No', 1: 'Yes'}, 'Blood test result': {0: 'Not Available', 1: 'abnormal', 2: 'inconclusive', 3: 'normal', 4: 'slightly abnormal'}}
 - **Label Encoding**: for Target cols, two target variables will be predicted and evaluated separately:
     - Genetic Disorder
         - 'Mitochondrial genetic inheritance disorders': 0,
@@ -359,20 +360,83 @@ Machine learning algorithms require numerical input. Hence, we need to convert c
         - 'Mitochondrial myopathy': 7,
         - 'Tay-Sachs': 8
 
-### Train/Test Split for Predicting Genetic Disorder
+### Train/Test Split: y1: Predicting Genetic Disorder
+- Selected 80% train size and 20% test size
+- Used SMOTE for balancing the target variables
 
 ## 🤖 Modeling
 
+In the Modeling Phase, focused on developing and evaluating seven different machine learning models to predict the target variable. The primary goal was to build models that can accurately classify instances based on the input features. 
+
+Utilized the following seven models for evaluation:
+
+1. **K-Nearest Neighbors (KNN)** - `OneVsRestClassifier(KNeighborsClassifier())`
+2. **Logistic Regression (LogReg)** - `LogisticRegression(multi_class='multinomial', solver='lbfgs', max_iter=1000)`
+3. **Decision Tree Classifier (dTree)** - `DecisionTreeClassifier(random_state=42)`
+4. **Support Vector Machine (SVM)** - `SVC(probability=True, random_state=42)`
+5. **Random Forest Classifier (RFC)** - `RandomForestClassifier(n_estimators=100, random_state=42)`
+6. **Gradient Boosting Machine (GBM)** - `GradientBoostingClassifier(n_estimators=100, random_state=42)`
+7. **XGBoost Classifier (XGB)** - `XGBClassifier(objective='multi:softmax', num_class=len(np.unique(y)), eval_metric='mlogloss')`
+
+<img width="559" alt="image" src="https://github.com/user-attachments/assets/f11aff11-6c52-409c-95bd-0f795befa4de">
+<img width="986" alt="image" src="https://github.com/user-attachments/assets/7a89812f-6d3a-4551-b487-ead4cface7b9">
+<img width="986" alt="image" src="https://github.com/user-attachments/assets/ae703f34-82f8-4265-a039-ca7083a5ae82">
+<img width="1122" alt="image" src="https://github.com/user-attachments/assets/1e6a8689-ed16-41dc-b5da-02de4fabd10c">
+<img width="1127" alt="image" src="https://github.com/user-attachments/assets/a7798633-33b1-4c4e-8ac3-762770dbc6bc">
+
+## ✅ Model Evaluation
+- Each model was trained and evaluated using the resampled dataset (via SMOTE to handle class imbalance).
+- Metrics such as **accuracy**, **precision**, **recall**, **F1-score**, and **AUC (Area Under the Curve)** were calculated to assess model performance.
+- Both weighted and macro/micro-averaged versions of precision, recall, and F1-score were considered for a balanced evaluation across all classes.
+
+### 📝 Initial Findings
+
+1. **SVC is computationally most expensive**: 
+   - **SVC** took the longest time to train, indicating it is the most computationally intensive model, with a train time of **152.73 seconds** compared to much faster models like **KNN (0.0664 seconds)** and **XGB (0.5177 seconds)**.
+
+2. **XGB seems to have better results than others**: 
+   - **XGBoost (XGB)** consistently outperformed most models with the best **Test Accuracy (0.59)** and **ROC-AUC (Micro: 0.79, Macro: 0.74)**, making it the top-performing model overall.
+
+3. **Based on F1 Score**: 
+   - **XGB**, **Random Forest Classifier (RFC)**, and **Decision Tree (dTree)** showed better performance compared to other models, with strong F1 Scores:
+     - **XGB**: F1 Macro of **0.54**
+     - **RFC**: F1 Macro of **0.52**
+     - **dTree**: F1 Macro of **0.51**
+
+4. **Based on ROC-AUC Scores**: 
+   - **XGB** and **Gradient Boosting Machine (GBM)** have the best AUC scores:
+     - **XGB**: **ROC-AUC Micro: 0.79**, **Macro: 0.74**
+     - **GBM**: **ROC-AUC Micro: 0.77**, **Macro: 0.71**
+   - They are followed by **SVM** and **RFC**, which have comparable ROC-AUC scores:
+     - **SVM**: **ROC-AUC Micro: 0.76**, **Macro: 0.73**
+     - **RFC**: **ROC-AUC Micro: 0.75**, **Macro: 0.70**
+
+These findings indicate that **XGB** and **GBM** offer the best performance across the majority of metrics, making them the top choices for further model refinement or deployment.
+
+### Improving the Models
+#### Hyperparameter tuning using Grid Search and Cross Validation
+
+### 🏆 Key Results: 
 
 
+## 🚀 Deployment Summary
 
-## ✅ Evaluation
+In the deployment phase, focused on saving the trained models for future use. This step ensures that the models can be easily loaded and reused without the need to retrain them, saving time and computational resources.
 
-#### 🏆 Results
-What did your research find?
+### Steps in Deployment:
+1. **Model Selection for Deployment**:
+   - Based on the evaluation of metrics like accuracy, F1 score, and ROC-AUC, the top-performing models (**XGB**, **GBM**, and **RFC**) were chosen for deployment.
+2. **Model Serialization**:
+   - Each trained model was serialized and saved using **`joblib.dump`**. This library efficiently saves large models, ensuring they can be reloaded for future predictions.
+3. **Model Reloading**:
+   - Reload a saved model using **`joblib.load`**
+4. **Future Integration**:
+   - These saved models are ready for integration into any application or system, where they can be utilized for real-time predictions or batch processing tasks.
+   - The deployment ensures that the models can be reused across different environments without re-training, allowing seamless transition from experimentation to production.
+5. **Scalability**:
+   - Since the models are saved as standalone files, they can be shared across different platforms and systems, making it easier to scale the solution as needed.
 
-
-## 🚀 Deployment 
+By saving the models using `joblib`, ensured the longevity and reusability of the trained models, supporting efficient and scalable deployment.
 
 
 ## ➡️ Next steps
