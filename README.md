@@ -269,31 +269,54 @@ Contingency tables (cross-tabulation) and chi-square tests are used to examine a
 
 Box plots, bar plots, and t-tests or ANOVA (for comparing means) are used to explore how a categorical variable impacts a numerical one.
 
-- **Summary of the ANOVA results for the continuous features in relation to the `Genetic Disorder`:**
-    - **Patient Age**: \( F \)-statistic = 0.76, \( p \)-value = 0.47
-    - **Blood Cell Count**: \( F \)-statistic = 0.58, \( p \)-value = 0.56
-    - **Mother Age**: \( F \)-statistic = 0.31, \( p \)-value = 0.73
-    - **Father Age**: \( F \)-statistic = 1.12, \( p \)-value = 0.33
-    - **Previous Abortion Count**: \( F \)-statistic = 1.42, \( p \)-value = 0.24
-    - **WBC Count**: \( F \)-statistic = 0.20, \( p \)-value = 0.82
-      
-    None of the continuous features (Patient Age, Blood Cell Count, Mother Age, Father Age, Previous Abortion Count, and WBC Count) show a statistically significant association with the `Genetic Disorder` based on the ANOVA results.
-    
-    All \( p \)-values are well above the conventional significance threshold of 0.05, indicating that these features **do not significantly influence** the presence or absence of the `Genetic Disorder`.
+**Summary ANOVA tests for 'Genetic Disorder'**
+The ANOVA tests were conducted to examine the association between various factors and genetic disorders. Here are the key findings:
 
-- **Summary of the ANOVA results for the continuous features in relation to the `Disorder Subclass`:**
+1. **No significant association** was found between the following factors and genetic disorders (all with p-values > 0.05):
+   - Patient Age (F = 0.76, p = 0.467)
+   - Blood Cell Count (F = 0.58, p = 0.560)
+   - Mother Age (F = 0.31, p = 0.733)
+   - Father Age (F = 1.12, p = 0.327)
+   - Test 4 (F = 1.65, p = 0.193)
+   - Previous Abortion Count (F = 1.42, p = 0.241)
+   - WBC Count (F = 0.20, p = 0.818)
 
-    - **Patient Age**: \( F \)-statistic = 0.95, \( p \)-value = 0.47
-    - **Blood Cell Count**: \( F \)-statistic = 1.10, \( p \)-value = 0.36
-    - **Mother Age**: \( F \)-statistic = 0.35, \( p \)-value = 0.94
-    - **Father Age**: \( F \)-statistic = 0.57, \( p \)-value = 0.80
-    - **Previous Abortion Count**: \( F \)-statistic = 0.86, \( p \)-value = 0.55
-    - **WBC Count**: \( F \)-statistic = 0.21, \( p \)-value = 0.99
-    
-    None of the continuous features (Patient Age, Blood Cell Count, Mother Age, Father Age, Previous Abortion Count, and WBC Count) show a statistically significant association with the `Disorder Subclass` based on the ANOVA results.
-    
-    All \( p \)-values are significantly higher than the conventional significance threshold of 0.05, indicating **no substantial relationship** between these features and the `Disorder Subclass`.
+2. **Significant associations** were identified between genetic disorders and the following symptoms (all with p-values < 0.05):
+   - Symptom 1 (F = 107.55, p = 3.33e-47)
+   - Symptom 2 (F = 185.16, p = 1.83e-80)
+   - Symptom 3 (F = 307.47, p = 2.08e-132)
+   - Symptom 4 (F = 341.09, p = 1.37e-146)
+   - Symptom 5 (F = 521.79, p = 4.42e-222)
 
+The columns selected for further analysis based on significant associations are:
+- **Symptom 1**, **Symptom 2**, **Symptom 3**, **Symptom 4**, and **Symptom 5**.
+
+This suggests that the symptoms are more strongly associated with genetic disorders than the other tested factors.
+
+**Summary ANOVA tests for 'Disorder Subclass'**
+
+The ANOVA tests were conducted to assess the relationship between various factors and the **Disorder Subclass**. Here are the main findings:
+
+1. **No significant association** was observed between the following factors and the Disorder Subclass (p-values > 0.05):
+   - Patient Age (F = 0.95, p = 0.473)
+   - Blood Cell Count (F = 1.10, p = 0.357)
+   - Mother Age (F = 0.35, p = 0.945)
+   - Father Age (F = 0.57, p = 0.805)
+   - Test 4 (F = 0.61, p = 0.767)
+   - Previous Abortion Count (F = 0.86, p = 0.553)
+   - WBC Count (F = 0.21, p = 0.989)
+
+2. **Significant associations** were found between the Disorder Subclass and the following symptoms (p-values < 0.05):
+   - Symptom 1 (F = 118.10, p = 2.27e-194)
+   - Symptom 2 (F = 204.27, p = 0.0)
+   - Symptom 3 (F = 295.72, p = 0.0)
+   - Symptom 4 (F = 385.57, p = 0.0)
+   - Symptom 5 (F = 556.77, p = 0.0)
+
+The columns selected for further analysis regarding Disorder Subclass are:
+- **Symptom 1**, **Symptom 2**, **Symptom 3**, **Symptom 4**, and **Symptom 5**.
+
+This indicates that these symptoms have strong associations with the Disorder Subclass, while the other tested variables do not.
 
 ### Data Pre-processing
 
