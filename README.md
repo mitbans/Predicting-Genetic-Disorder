@@ -416,7 +416,11 @@ These findings indicate that **XGB** and **GBM** offer the best performance acro
 ### Improving the Models
 #### Hyperparameter tuning using Grid Search and Cross Validation
 
+---- In Progress ----
+
 ### 🏆 Key Results: 
+
+----- In Progress -----
 
 
 ## 🚀 Deployment Summary
@@ -440,21 +444,19 @@ By saving the models using `joblib`, ensured the longevity and reusability of th
 
 
 ## ➡️ Next steps
-What suggestions do you have for next steps?
 
-## Outline of project
-
-- [Link to notebook 1]()
-- [Link to notebook 2]()
-- [Link to notebook 3]()
-
-
-## Contact and Further Information  
+----- In Progress -----
 
 
 
+## Repository Structure
+- <code>data/train.csv</code>: Contains dataset used in the analysis.
+- <code>data/test.csv</code>: Contains dataset used for business evaluation / validation.
+- <code>deployment/</code>: Contains models ready for deployment or to be used in apps.
+- <code>notebooks/Predicting-Genetic-Disorder.ipynb</code>: Jupyter notebook with code for data analysis and modeling.
+- <code>README.md</code>: Summary of findings and link to notebook
 
-
-
+## Notebook
+The detailed analysis and code can be found in the Jupyter notebook <a href="https://github.com/mitbans/Predicting-Genetic-Disorder/blob/main/notebooks/Predicting-Genetic-Disorder.ipynb">here</a>.
 
 ---
