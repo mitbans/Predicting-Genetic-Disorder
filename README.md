@@ -144,7 +144,7 @@ Key activities included:
 #### **Missing Values Analysis:** 
 Most columns have a missing rate of around 9-10%, with a few columns having more substantial gaps.
 - **Low Missing Values (1% - 10%)**: *Inherited from father* (1.39%), *Patient Age* (6.46%).
-- **Moderate Missing Values (9% - 10%)**: Many columns, such as *Respiratory Rate*, *Heart Rate*, *Parental Consent*, *Gender*, *Birth Asphyxia*, *WBC Count*, and *Genetic Disorder*, have around 9-10% missing data.
+- **Moderate Missing Values (9% - 10%)**: Many columns, such as *Respiratory Rate*, *Heart Rate*, *Parental Consent*, *Gender*, *Birth Asphyxia*, *WBC Count*, *Test 4* and *Genetic Disorder*, have around 9-10% missing data.
 - **High Missing Values (Above 10%)**: *Maternal gene* (12.72%), *Birth Defect* (19.89%).
 - **Very High Missing Values (Above 20%)**: *Mother's Age* (27.33%) and *Father's Age* (27.11%).    
     
@@ -217,110 +217,34 @@ Visualized the distributions of key variables using histograms, density plots an
             - Disorder Subclass (target variable) -  skewed towards a few dominant subclasses
     
 - **Summary of Outlier Detection:**
-    - `Blood Cell Count` shows some outliers in the box plot, may require handling.
+    - `Blood Cell Count` shows some outliers in the box plot, may require handling (if required).
 
-  
-        
 #### **Bivariate Analysis:**
 
-**Numerical vs. Numerical Correlation Summary:**
+##### **Correlation Analysis - Numerical vs. Numerical variables**
+- Compute the correlation matrix for numeric features using .corr().
+- Visualize correlations using a heatmap.
+- Explore relationships between features, especially between features and the target variable.
+    - Use pair plots or scatter plots for this purpose.
 
-Scatter plots, correlation coefficients (like Pearson or Spearman), and regression analysis are used to assess relationships between two numerical variables.
-- The correlation matrix shows how each feature in the dataset is related to the others.
-- Most correlations are close to zero, indicating weak or no linear relationships between the variables.
-- The strongest positive correlation is seen between Symptom 4 and Symptom 5 (0.0368)
-- Patient Age has minimal correlations with other features.
-- The NaN values for Test 4 suggest there was no data available for this feature, leading to undefined correlations.
+    **Correlation Summary:**
+    - The correlation matrix shows how each feature in the dataset is related to the others. 
+    - Most correlations are close to zero, indicating weak or no linear relationships between the variables.
+    - The strongest positive correlation is seen between Symptom 4 and Symptom 5 (0.0368)
+    - Patient Age has minimal correlations with other features.
+    - The NaN values for Test 4 suggest there was no data available for this feature, leading to undefined correlations.
 
-**Categorical vs. Categorical Summary:** 
+##### **Categorical Vs. Categorical Variables**
+- Histograms for all categorical variable to visualize the distribution by target variable (Genetic Disorder).
 
-Contingency tables (cross-tabulation) and chi-square tests are used to examine associations between two categorical variables.
-
-- **Summary of the chi-square test results for Genetic Disorder (p-value < 0.05):**
-    1. **Inherited from mother**: Chi-Square = 203.93, p-value = 5.21e-45
-    2. **Inherited from father**: Chi-Square = 196.11, p-value = 2.60e-43
-    3. **Maternal gene**: Chi-Square = 116.83, p-value = 4.28e-26
-    4. **Paternal gene**: Chi-Square = 115.47, p-value = 8.43e-26
-    5. **Blood test result**: Chi-Square = 16.69, p-value = 0.01
-    
-    These features show a significant relationship with **Genetic Disorder**, suggesting they are important in explaining or predicting the target variable.
-
-- **No Significant Association with Genetic Disorder (p-value >= 0.05):**
-    - **Status**
-    - **Respiratory Rate**
-    - **Heart Rate**
-    - **Parental consent**
-    - **Follow-up**
-    - **Gender**
-    - **Birth asphyxia**
-    - **Birth defect**
-    - **Place of birth**
-    - **Folic acid**
-    - **Serious maternal illness**
-    - **Radiation exposure**
-    - **Substance abuse**
-    - **Assisted conception**
-    - **Anomalies in previous pregnancies**
-    - **Birth defects**
-
-    These features do not show a significant association with **Genetic Disorder** and might be less relevant in predicting the target variable.
-
-**Numerical vs. Categorical Summary:**
-
-Box plots, bar plots, and t-tests or ANOVA (for comparing means) are used to explore how a categorical variable impacts a numerical one.
-
-**Summary ANOVA tests for 'Genetic Disorder'**
-The ANOVA tests were conducted to examine the association between various factors and genetic disorders. Here are the key findings:
-
-1. **No significant association** was found between the following factors and genetic disorders (all with p-values > 0.05):
-   - Patient Age (F = 0.76, p = 0.467)
-   - Blood Cell Count (F = 0.58, p = 0.560)
-   - Mother Age (F = 0.31, p = 0.733)
-   - Father Age (F = 1.12, p = 0.327)
-   - Test 4 (F = 1.65, p = 0.193)
-   - Previous Abortion Count (F = 1.42, p = 0.241)
-   - WBC Count (F = 0.20, p = 0.818)
-
-2. **Significant associations** were identified between genetic disorders and the following symptoms (all with p-values < 0.05):
-   - Symptom 1 (F = 107.55, p = 3.33e-47)
-   - Symptom 2 (F = 185.16, p = 1.83e-80)
-   - Symptom 3 (F = 307.47, p = 2.08e-132)
-   - Symptom 4 (F = 341.09, p = 1.37e-146)
-   - Symptom 5 (F = 521.79, p = 4.42e-222)
-
-The columns selected for further analysis based on significant associations are:
-- **Symptom 1**, **Symptom 2**, **Symptom 3**, **Symptom 4**, and **Symptom 5**.
-
-This suggests that the symptoms are more strongly associated with genetic disorders than the other tested factors.
-
-**Summary ANOVA tests for 'Disorder Subclass'**
-
-The ANOVA tests were conducted to assess the relationship between various factors and the **Disorder Subclass**. Here are the main findings:
-
-1. **No significant association** was observed between the following factors and the Disorder Subclass (p-values > 0.05):
-   - Patient Age (F = 0.95, p = 0.473)
-   - Blood Cell Count (F = 1.10, p = 0.357)
-   - Mother Age (F = 0.35, p = 0.945)
-   - Father Age (F = 0.57, p = 0.805)
-   - Test 4 (F = 0.61, p = 0.767)
-   - Previous Abortion Count (F = 0.86, p = 0.553)
-   - WBC Count (F = 0.21, p = 0.989)
-
-2. **Significant associations** were found between the Disorder Subclass and the following symptoms (p-values < 0.05):
-   - Symptom 1 (F = 118.10, p = 2.27e-194)
-   - Symptom 2 (F = 204.27, p = 0.0)
-   - Symptom 3 (F = 295.72, p = 0.0)
-   - Symptom 4 (F = 385.57, p = 0.0)
-   - Symptom 5 (F = 556.77, p = 0.0)
-
-The columns selected for further analysis regarding Disorder Subclass are:
-- **Symptom 1**, **Symptom 2**, **Symptom 3**, **Symptom 4**, and **Symptom 5**.
-
-This indicates that these symptoms have strong associations with the Disorder Subclass, while the other tested variables do not.
+##### **Numerical vs. Categorical:** 
+Analyze Box plots, bar plots for Numerical Vs. Target cols.
 
 ### Data Pre-processing
+- Handling Missing Values
+- Handling Outliers (if required)
 
-####  **Handling Missing Values**
+####  Handling Missing Values
 
 Missing values can significantly affect the performance of machine learning models. We need to address them appropriately.
 
@@ -328,18 +252,96 @@ Missing values can significantly affect the performance of machine learning mode
     - Binary Columns like `Symptom 1 - 5` and `Test 4`, we can fill Nan values with 0.
     - For columns like 'Patient Age', 'Blood cell count', 'Mother age', 'Father age', 'Previous abortion count', 'WBC count', we can fill missing values with the median of the column to avoid the influence of outliers.
 
-- **Categorical Columns**: For columns like `Inherited from father`, `Maternal gene`, `Respiratory Rate`, `Heart Rate`, `Parental consent`, `Follow-up`, `Gender`, `Birth asphyxia`, `Birth defect`, `Place of birth`, `Folic acid`, `Serious maternal illness`, `Radiation exposure`, `Substance abuse`, `Assisted conception`, `Anomalies in previous pregnancies`, `Birth defects`, `Blood test result`, we can fill missing values with the mode of each column.
+- **Categorical Columns**: For columns like `Inherited from father`, `Maternal gene`, `Respiratory Rate`, `Heart Rate`, `Parental consent`, `Follow-up`, `Gender`, `Birth asphyxia`, `Birth defect`, `Place of birth`, `Folic acid`, `Serious maternal illness`, `Radiation exposure`, `Substance abuse`, `Assisted conception`, `Anomalies in previous pregnancies`, `Birth defects`, `Blood test result`, we can fill missing values with `'Not Available'` for each column.
 
-- **Target Columns**: First, the missing values in the `Genetic Disorder` column are filled based on the `Disorder Subclass`. After that, the missing values in the `Disorder Subclass` are filled with the mode for each `Genetic Disorder` category.
+- **Target Columns**: First, the missing values in the `Genetic Disorder` column are filled based on the `Disorder Subclass`. After that, the missing values in the `Disorder Subclass` are filled with the mode for each `Genetic Disorder` category.olumn.
 
-#### **Handling Outliers** ------------------------- pending
+### Feature Selection: Filter Methods
+- Chi-Sqaure Tests
+- ANOVA Tests
 
+#### **Contingency tables (cross-tabulation) and Chi-square tests**
+- Measures the dependence between categorical features and the target categorical variable.
 
+- **Summary of Chi-Square Tests for 'Genetic Disorder'**
+
+    The Chi-Square test results indicate significant associations between the following features and genetic disorders:
+    
+    1. **Inherited from mother**: Chi-Square = 203.93, p-value = 5.21e-45
+    2. **Inherited from father**: Chi-Square = 198.35, p-value = 8.51e-42
+    3. **Maternal gene**: Chi-Square = 126.59, p-value = 2.09e-26
+    4. **Paternal gene**: Chi-Square = 115.47, p-value = 8.43e-26
+    5. **Blood test result**: Chi-Square = 21.40, p-value = 0.0062
+    
+    These features show a significant relationship with the presence of a genetic disorder.
+    
+    On the other hand, several features, such as **Status**, **Respiratory Rate**, **Heart Rate**, **Parental consent**, and others, do not show a significant association with genetic disorders based on their high p-values.
+    
+    The **selected features** that are significantly associated with genetic disorders are:
+    - 'Inherited from mother', 'Inherited from father', 'Maternal gene', 'Paternal gene', 'Blood test result'
+
+- **Summary of Chi-Square Tests for 'Disorder Subclass'**
+
+    The Chi-Square test results show significant associations between the following features and **Disorder Subclass**:
+    
+    1. **Inherited from mother**: Chi-Square = 761.40, p-value = 4.28e-159
+    2. **Inherited from father**: Chi-Square = 718.09, p-value = 1.82e-142
+    3. **Maternal gene**: Chi-Square = 620.84, p-value = 8.65e-122
+    4. **Paternal gene**: Chi-Square = 545.36, p-value = 1.29e-112
+    5. **Blood test result**: Chi-Square = 46.72, p-value = 0.045
+    
+    These features have a significant association with Disorder Subclass.
+    
+    Other features, such as **Status**, **Respiratory Rate**, **Heart Rate**, **Parental consent**, and others, do not show a significant association with Disorder Subclass, as indicated by their high p-values.
+    
+    The **selected features** significantly associated with Disorder Subclass are:
+    - 'Inherited from mother', 'Inherited from father', 'Maternal gene', 'Paternal gene', 'Blood test result'
+
+#### **ANOVA (Analysis of Variance) Tests** 
+- The goal is to see if there is a significant difference in the mean of continuous features across the different categories of Genetic Disorder (target variable).
+
+- **Summary ANOVA tests for 'Genetic Disorder'**
+
+    The ANOVA results reveal significant associations between **Symptom 1**, **Symptom 2**, **Symptom 3**, **Symptom 4**, and **Symptom 5** with **Genetic Disorder**, as indicated by their low p-values:
+    
+    1. **Symptom 1**: F-statistic = 107.55, p-value = 3.33e-47
+    2. **Symptom 2**: F-statistic = 185.16, p-value = 1.83e-80
+    3. **Symptom 3**: F-statistic = 307.47, p-value = 2.08e-132
+    4. **Symptom 4**: F-statistic = 341.09, p-value = 1.37e-146
+    5. **Symptom 5**: F-statistic = 521.79, p-value = 4.42e-222
+    
+    These symptoms show a significant association with the presence of a genetic disorder.
+    
+    Other variables, such as **Patient Age**, **Blood cell count**, **Mother age**, **Father age**, and **Previous abortion count**, do not show a significant association with Genetic Disorder, as indicated by their high p-values.
+    
+    The **selected features** significantly associated with Genetic Disorder based on ANOVA are:
+    - 'Symptom 1', 'Symptom 2', 'Symptom 3', 'Symptom 4', 'Symptom 5'
+
+- **Summary ANOVA tests for 'Disorder Subclass'**
+
+    The ANOVA results for **Disorder Subclass** indicate significant associations with the following symptoms:
+    
+    1. **Symptom 1**: F-statistic = 118.10, p-value = 2.27e-194
+    2. **Symptom 2**: F-statistic = 204.27, p-value = 0.0
+    3. **Symptom 3**: F-statistic = 295.72, p-value = 0.0
+    4. **Symptom 4**: F-statistic = 385.57, p-value = 0.0
+    5. **Symptom 5**: F-statistic = 556.77, p-value = 0.0
+    
+    These symptoms are significantly associated with Disorder Subclass.
+    
+    On the other hand, features such as **Patient Age**, **Blood cell count**, **Mother age**, **Father age**, **Test 4**, **Previous abortion count**, and **WBC count** do not show a significant association with Disorder Subclass, as their p-values are high.
+    
+    The **selected features** significantly associated with Disorder Subclass based on ANOVA are:
+    - 'Symptom 1', 'Symptom 2', 'Symptom 3', 'Symptom 4', 'Symptom 5'
+
+#### Selected Featues from Chi-Square and ANOVA Methods:
+- **Categorical:** 'Inherited from mother', 'Inherited from father', 'Maternal gene', 'Paternal gene', 'Blood test result'
+- **Numerical/Binary:** 'Symptom 1', 'Symptom 2', 'Symptom 3', 'Symptom 4', 'Symptom 5'
 
 ### Engineering Features
 #### Encoding Categorical Variables and Scaling Numnerical Variables
 Machine learning algorithms require numerical input. Hence, we need to convert categorical variables into numerical formats. Common techniques include:
-- **Standard Scalar**: for numerical cols
+- **Standard Scalar**: for numerical cols (not required as selected cols are binary 1,0)
 - **Ordinal Encoding**: for categorical cols
 - **Label Encoding**: for Target cols, two target variables will be predicted and evaluated separately:
     - Genetic Disorder
