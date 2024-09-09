@@ -378,11 +378,14 @@ Utilized the following seven models for evaluation:
 6. **Gradient Boosting Machine (GBM)** - `GradientBoostingClassifier(n_estimators=100, random_state=42)`
 7. **XGBoost Classifier (XGB)** - `XGBClassifier(objective='multi:softmax', num_class=len(np.unique(y)), eval_metric='mlogloss')`
 
-<img width="559" alt="image" src="https://github.com/user-attachments/assets/f11aff11-6c52-409c-95bd-0f795befa4de">
-<img width="986" alt="image" src="https://github.com/user-attachments/assets/7a89812f-6d3a-4551-b487-ead4cface7b9">
-<img width="986" alt="image" src="https://github.com/user-attachments/assets/ae703f34-82f8-4265-a039-ca7083a5ae82">
-<img width="1122" alt="image" src="https://github.com/user-attachments/assets/1e6a8689-ed16-41dc-b5da-02de4fabd10c">
-<img width="1127" alt="image" src="https://github.com/user-attachments/assets/a7798633-33b1-4c4e-8ac3-762770dbc6bc">
+<div align="center">
+    <img width="559" alt="image" src="https://github.com/user-attachments/assets/f11aff11-6c52-409c-95bd-0f795befa4de">
+    <img width="986" alt="image" src="https://github.com/user-attachments/assets/7a89812f-6d3a-4551-b487-ead4cface7b9">
+    <img width="1121" alt="image" src="https://github.com/user-attachments/assets/7d38531b-9919-400a-8a18-966d8e4a2eba">
+    <img width="1122" alt="image" src="https://github.com/user-attachments/assets/1e6a8689-ed16-41dc-b5da-02de4fabd10c">
+    <img width="1127" alt="image" src="https://github.com/user-attachments/assets/a7798633-33b1-4c4e-8ac3-762770dbc6bc">
+</div>
+
 
 ## ✅ Model Evaluation
 - Each model was trained and evaluated using the resampled dataset (via SMOTE to handle class imbalance).
