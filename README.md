@@ -401,7 +401,7 @@ Utilized the following seven models for evaluation:
    - **XGBoost (XGB)** consistently outperformed most models with the best **Test Accuracy (0.59)** and **ROC-AUC (Micro: 0.79, Macro: 0.74)**, making it the top-performing model overall.
 
 3. **Based on F1 Score**: 
-   - **XGB**, **Random Forest Classifier (RFC)**, and **Decision Tree (dTree)** showed better performance compared to other models, with strong F1 Scores:
+   - **XGB**, **GBM** and **Random Forest Classifier (RFC)** showed better performance compared to other models, with strong F1 Scores:
      - **XGB**: F1 Macro of **0.54**
      - **GBM**: F1 Macro of **0.53**
      - **RFC**: F1 Macro of **0.52**
@@ -421,19 +421,44 @@ Utilized the following seven models for evaluation:
 These findings indicate that **XGB** and **GBM** offer the best performance across the majority of metrics, making them the top choices for further model refinement or deployment.
 
 ### Improving the Models
-#### Hyperparameter tuning using Grid Search and Cross Validation
 - **Summary of Findings Following Hyperparameter Tuning and Grid Search**
+
     - **Best Parameters:**
         - knn_grid_best_params:  {'estimator__metric': 'euclidean', 'estimator__n_neighbors': 15, 'estimator__weights': 'distance'}
         - logreg_grid_best_params:  {'C': 10, 'class_weight': 'balanced', 'penalty': 'l2', 'solver': 'sag'}
         - dtree_grid_best_params:  {'criterion': 'gini', 'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 5}
-        - SVM: Optimal kernel is rbf with cross-validation score of 0.62, 
-        - 
+        - svm_grid_best_params:  {'C': 10, 'gamma': 'scale', 'kernel': 'rbf'}
+        - rfc_grid_best_params:  {'bootstrap': True, 'max_depth': 50, 'min_samples_leaf': 1, 'min_samples_split': 10, 'n_estimators': 200}
+        - gbm_grid_best_params:  {'learning_rate': 0.1, 'max_depth': 4, 'n_estimators': 200, 'subsample': 1.0}
+        - xgb_grid_best_params:  {'colsample_bytree': 1.0, 'gamma': 0, 'learning_rate': 0.2, 'max_depth': 5, 'n_estimators': 200, 'subsample': 0.8}
 
+    - **SVC is computationally most expensive**: 
+       - **SVC** took the longest time to train, indicating it is the most computationally intensive model, with a train time of **16 min 17 seconds** compared to much faster models like **decision tree (12 seconds)** and **KNN (181 seconds)**.
+    
+    - **XGB seems to have better results than others**: 
+       - **XGBoost (XGB)** consistently outperformed most models with the best **Test Accuracy (0.59)** and **ROC-AUC (Micro: 0.79, Macro: 0.74)**, making it the top-performing model overall.
+    
+    - **Based on F1 Macro Score**: 
+       - **XGB**, **GBM**, **Random Forest Classifier (RFC)** and **SVM** showed better performance compared to other models, with strong F1 Scores:
+         - **XGB**: F1 Macro of **0.54**
+         - **GBM**: F1 Macro of **0.54**
+         - **RFC**: F1 Macro of **0.53**
+         - **SVM**: F1 Macro of **0.53**
+    
+    - **Based on ROC-AUC Scores**: performance improved slightly after hyperparameter tuning
+       - **XGB** and **Gradient Boosting Machine (GBM)** have the best AUC scores:
+         - **XGB**: **ROC-AUC Micro: 0.79**, **Macro: 0.74**
+         - **GBM**: **ROC-AUC Micro: 0.78**, **Macro: 0.73**
+       - They are followed by **SVM** and **RFC**, which have comparable ROC-AUC scores:
+         - **SVM**: **ROC-AUC Micro: 0.77**, **Macro: 0.73**
+         - **RFC**: **ROC-AUC Micro: 0.77**, **Macro: 0.72**
+    
+    - **Class 0** is best identified by GBM, XGB, SVM
+    - **Class 1** is best identified by logreg, SVM, XGB 
+    - **Class 2** is best identified by KNN, logreg, RFC, dtree
+    - The **Voting and Stacking Classifiers** did not lead to a noticeable improvement in the prediction outcomes.
 
-#### Voting Classifier
-
-#### Stacking Classifier
+These findings indicate that **XGB** and **GBM** offer the best performance across the majority of metrics, making them the top choices for further model refinement or deployment.
 
 ### Feature Importances (XGB model)
 #### 🏆 Key Results: 
@@ -462,6 +487,9 @@ By saving the models using `joblib`, ensured the longevity and reusability of th
 
 
 ## ➡️ Next steps
+- **Predict type of Disorder Subclass:**
+    - Implement machine learning algorithms to classify and predict the specific subclass of a disorder.
+      
 - **Leverage Neural Networks** to enhance performance metrics.
 
 - **Integration of Diverse Data Types:**
