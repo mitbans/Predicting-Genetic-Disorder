@@ -460,6 +460,15 @@ These findings indicate that **XGB** and **GBM** offer the best performance acro
 
 These findings indicate that **XGB** and **GBM** offer the best performance across the majority of metrics, making them the top choices for further model refinement or deployment.
 
+<div align="center">
+    <img width="605" alt="image" src="https://github.com/user-attachments/assets/2de4a5e7-d13f-4994-9d72-b4013b5e2916">
+    <img width="1006" alt="image" src="https://github.com/user-attachments/assets/0c104f4d-31d8-4a5c-bfcb-6eb8434cc3bf">
+    <img width="1123" alt="image" src="https://github.com/user-attachments/assets/fd089786-8eb1-4607-9ee1-e1089283d566">
+    <img width="1136" alt="image" src="https://github.com/user-attachments/assets/13c6dde3-574e-4140-adc8-64eb40874206">
+    <img width="1139" alt="image" src="https://github.com/user-attachments/assets/5602f839-d0d3-45e0-8209-c71ae1d3e0a3">
+</div>
+
+
 ### Feature Importances (XGB model)
 #### 🏆 Key Results: 
 - **Symptoms:** The five symptoms (Symptom 1 to Symptom 5) are the most important features, accounting for over 90% of the model's predictive power.
