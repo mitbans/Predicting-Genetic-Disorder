@@ -423,6 +423,12 @@ These findings indicate that **XGB** and **GBM** offer the best performance acro
 ### Improving the Models
 #### Hyperparameter tuning using Grid Search and Cross Validation
 - **Summary of Findings Following Hyperparameter Tuning and Grid Search**
+    - **Best Parameters:**
+        - knn_grid_best_params:  {'estimator__metric': 'euclidean', 'estimator__n_neighbors': 15, 'estimator__weights': 'distance'}
+        - logreg_grid_best_params:  {'C': 10, 'class_weight': 'balanced', 'penalty': 'l2', 'solver': 'sag'}
+        - dtree_grid_best_params:  {'criterion': 'gini', 'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 5}
+        - SVM: Optimal kernel is rbf with cross-validation score of 0.62, 
+        - 
 
 
 #### Voting Classifier
