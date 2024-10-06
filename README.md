@@ -403,8 +403,8 @@ Utilized the following seven models for evaluation:
 3. **Based on F1 Score**: 
    - **XGB**, **Random Forest Classifier (RFC)**, and **Decision Tree (dTree)** showed better performance compared to other models, with strong F1 Scores:
      - **XGB**: F1 Macro of **0.54**
+     - **GBM**: F1 Macro of **0.53**
      - **RFC**: F1 Macro of **0.52**
-     - **dTree**: F1 Macro of **0.51**
 
 4. **Based on ROC-AUC Scores**: 
    - **XGB** and **Gradient Boosting Machine (GBM)** have the best AUC scores:
@@ -413,18 +413,27 @@ Utilized the following seven models for evaluation:
    - They are followed by **SVM** and **RFC**, which have comparable ROC-AUC scores:
      - **SVM**: **ROC-AUC Micro: 0.76**, **Macro: 0.73**
      - **RFC**: **ROC-AUC Micro: 0.75**, **Macro: 0.70**
+    
+5. **Class 0** is best identified by SVM, GBM, XGB
+6. **Class 1** is best identified by logreg, SVM, GBM 
+7. **Class 2** is best identified by logreg, KNN, RFC 
 
 These findings indicate that **XGB** and **GBM** offer the best performance across the majority of metrics, making them the top choices for further model refinement or deployment.
 
 ### Improving the Models
 #### Hyperparameter tuning using Grid Search and Cross Validation
+- **Summary of Findings Following Hyperparameter Tuning and Grid Search**
 
----- In Progress ----
 
-### 🏆 Key Results: 
+#### Voting Classifier
 
------ In Progress -----
+#### Stacking Classifier
 
+### Feature Importances (XGB model)
+#### 🏆 Key Results: 
+- **Symptoms:** The five symptoms (Symptom 1 to Symptom 5) are the most important features, accounting for over 90% of the model's predictive power.
+- **Genetic Information:** Features related to inheritance (Inherited from mother, Paternal gene, Inherited from father, Maternal gene) have moderate importance.
+- **Blood Test Result:** This feature has the lowest importance among the listed features.
 
 ## 🚀 Deployment Summary
 
@@ -447,10 +456,18 @@ By saving the models using `joblib`, ensured the longevity and reusability of th
 
 
 ## ➡️ Next steps
+- **Leverage Neural Networks** to enhance performance metrics.
 
------ In Progress -----
+- **Integration of Diverse Data Types:**
+    - **Genomic Data:** Incorporate data from genomic sequencing (e.g., whole genome sequencing, exome sequencing) that provides detailed insights into genetic variations.
+    - **Clinical Data:** Gather clinical records, treatment histories, and patient outcomes to provide context to genetic information and enrich feature sets.
+    - **Phenotypic Data:** Use phenotypic data (observable traits and characteristics) to correlate genetic variants with clinical manifestations, helping improve model accuracy.
+    - **Environmental Factors:** Consider integrating environmental or lifestyle data (e.g., diet, exposure to toxins) that may influence the manifestation of genetic disorders.
 
-
+- **Utilizing Techniques for Explainability:**
+    - **LIME (Local Interpretable Model-agnostic Explanations):** Use LIME to generate locally faithful explanations by approximating the model with an interpretable one around a given prediction.
+    - **SHAP (SHapley Additive exPlanations):** Implement SHAP values to quantify the contribution of each feature to individual predictions, providing a global understanding of feature importance and interactions.
+    - **Feature Visualization:** For neural networks, techniques like Grad-CAM can be employed to visualize which parts of the input contribute most to the prediction, especially for image data.
 
 ## Repository Structure
 - <code>data/train.csv</code>: Contains dataset used in the analysis.
