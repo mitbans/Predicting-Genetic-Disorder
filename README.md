@@ -456,7 +456,8 @@ These findings indicate that **XGB** and **GBM** offer the best performance acro
     - **Class 0** is best identified by GBM, XGB, SVM
     - **Class 1** is best identified by logreg, SVM, XGB 
     - **Class 2** is best identified by KNN, logreg, RFC, dtree
-    - The **Voting and Stacking Classifiers** did not lead to a noticeable improvement in the prediction outcomes.
+    - **Logreg with Thresholds:** Although class 0 improved drastically but calss 1 prediction accuracy reduced and class 2 accuracy fell to 0%.
+    - **Voting and Stacking Classifiers** did not lead to a noticeable improvement in the prediction outcomes.
 
 These findings indicate that **XGB** and **GBM** offer the best performance across the majority of metrics, making them the top choices for further model refinement or deployment.
 
@@ -466,6 +467,7 @@ These findings indicate that **XGB** and **GBM** offer the best performance acro
     <img width="1123" alt="image" src="https://github.com/user-attachments/assets/fd089786-8eb1-4607-9ee1-e1089283d566">
     <img width="1136" alt="image" src="https://github.com/user-attachments/assets/13c6dde3-574e-4140-adc8-64eb40874206">
     <img width="1139" alt="image" src="https://github.com/user-attachments/assets/5602f839-d0d3-45e0-8209-c71ae1d3e0a3">
+    <img width="1124" alt="image" src="https://github.com/user-attachments/assets/9163d2f1-7787-418e-8abe-aedb1a234e8e">
 </div>
 
 
